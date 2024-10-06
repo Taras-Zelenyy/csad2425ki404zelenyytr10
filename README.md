@@ -2,18 +2,18 @@
 
 This repository is for the **Computer Systems Automated Design** (CSAD) labs. The repository follows the naming convention `csad<YY1YY2><group><student's full name><student's number>`. 
 
-In this case, the repository name would be structured as: `csad2425ki404zelenyytr10`
+In this case, the repository name would be structured as: `csad2425ki404zelenyytr07`
 
 Main development branch: **develop**
 
 ## Task Details
 
-1. Create a GitHub repository with the name `csad2425ki404zelenyytr10`, where:
+1. Create a GitHub repository with the name `csad2425ki404zelenyytr07`, where:
    - **YY1** is the start of the studying year: **24**
    - **YY2** is the end of the studying year: **25**
    - **Group** is the student's group identifier: **ki404**
    - **Full name** is the student's full name: **Zelenyy Taras Romanovych**
-   - **Student's number** is: **10**
+   - **Student's number** is: **7**
 
 2. Grant repository access to the author/lecturer.
 
@@ -38,7 +38,7 @@ Main development branch: **develop**
 
 | **Student Number** | **Student Name**            | **Group** | **Game**            | **Config format** |
 |--------------------|-----------------------------|-----------|---------------------|-------------------|
-| 10                 | Zelenyy Taras Romanovych    | KI-404    | rock paper scissors | XML               |
+| 07                 | Zelenyy Taras Romanovych    | KI-404    | tik-tac-toe 3x3     | XML               |
 
 
 ## Technologies, Programming Language, and Hardware
