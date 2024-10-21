@@ -8,31 +8,11 @@ Main development branch: **develop**
 
 ## Task Details
 
-1. Create a GitHub repository with the name `csad2425ki404zelenyytr07`, where:
-   - **YY1** is the start of the studying year: **24**
-   - **YY2** is the end of the studying year: **25**
-   - **Group** is the student's group identifier: **ki404**
-   - **Full name** is the student's full name: **Zelenyy Taras Romanovych**
-   - **Student's number** is: **7**
-
-2. Grant repository access to the author/lecturer.
-
-3. Create a branch in the following format: `feature/develop/<task number>`.
-   For this task, I named the branch `feature/develop/task1`.
-
-4. README.md file will contain:
-   - Details about the repository and task.
-   - Information about the student's task as per Table 1.
-   - Technology, programming language, and hardware details for the next tasks.
-
-5. Create a Git tag in the format: `<PROJECT_NAME>_<VERSION>_WW<YYWWD>`, where:
-   - **YY**: Current year
-   - **WW**: Work week number
-   - **D**: Current day number of the week
-
-6. Create a pull request titled `task1` and assign the lecturer as a reviewer.
-
-7. After the reviewer approves, merge the pull request into the `develop` branch.
+1. Create a simple communication schema SW(client) <-> UART <-> HW(server).
+2. The client should send a message to the server. The server should modify the message and send it back to the client.
+3. Create YML file with next features: 
+   a. build all binaries (create scripts in folder ci/ if need);
+   c. create artifacts;
 
 ## Student Details and details from Table 1
 
@@ -45,5 +25,49 @@ Main development branch: **develop**
 
 For the upcoming tasks, the following languages, and hardware will be used:
 
-- **Programming Language**: C/C++ or Python (Will clarify it in the next Pull Requests)
-- **Hardware**: Arduino (Will clarify it in the next Pull Requests)
+- **Programming Language**: C/C++
+- **Hardware**: Arduino Nano
+- **Enviroment**: 
+   - VS code: To write and upload the logic code to the Arduino Uno, using C++ for low-level control.
+   - Arduino IDE: To write and upload the logic code to the Arduino Uno, using C++ for low-level control.
+
+## How to run project
+### Server side
+1) Clone repo using next command below:
+```
+https://github.com/Taras-Zelenyy/csad2425ki404zelenyytr07.git
+```
+2) Open `git bash`
+3) Make checkout to feature/develop/task2. Use next command:
+```
+git checkout feature/develop/task2
+```
+4) Find next file usin following path: `your_path\server\server.ino`
+5) Open Arduino IDE, choose you port (for me it's COM3), board and upload code
+
+### Client side
+1) Open `pull feature/develop/task2`
+2) Navigate to `Action` tab
+3) Choose last project build
+4) Download artifacts
+5) Unzip downloaded folder
+6) Navigate to `"your_path\build-artifacts\Debug\client.exe"`
+7) Double click to `client.exe`
+
+## How it's work
+
+User write message in client console. Server process user input, and return answer.
+
+### Exsample 1
+**User input:** `Привіт Arduino!`
+
+**Server answer:** `Привіт User!`
+
+![alt text](media/image.png)
+
+### Exsample 2 (User enter anything else)
+**User input:** `Привіт!`
+
+**Server answer:** `Мені не відома така команда`
+
+![alt text](media/image-1.png)
