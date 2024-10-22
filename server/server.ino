@@ -11,12 +11,12 @@ void loop() {
   if (Serial.available() > 0) {
     message = Serial.readString();
 
-    if (message == "Привіт Arduino!"){
-      Serial.println("Привіт User!");
+    if (message == "Hello Arduino!"){
+      Serial.println("Hello User!");
     }
     else
     {
-      Serial.println("Мені не відома така команда");
+      Serial.println("I don't know of any such command");
     }
   }
 }
