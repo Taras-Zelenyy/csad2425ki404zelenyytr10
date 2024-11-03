@@ -8,11 +8,19 @@ Main development branch: **develop**
 
 ## Task Details
 
-1. Create a simple communication schema SW(client) <-> UART <-> HW(server).
-2. The client should send a message to the server. The server should modify the message and send it back to the client.
-3. Create YML file with next features: 
-   a. build all binaries (create scripts in folder ci/ if need);
-   c. create artifacts;
+1. Develop Server and Client.
+2. Implement Tic Tac Toe Game
+3. Game should have a menu that allows to configure parameters:
+      - Man vs Man
+      - Man vs AI
+      - AI vs AI
+   
+   Action:
+      - New
+      - Save
+      - Load
+
+
 
 ## Student Details and details from Table 1
 
@@ -38,15 +46,15 @@ For the upcoming tasks, the following languages, and hardware will be used:
 https://github.com/Taras-Zelenyy/csad2425ki404zelenyytr07.git
 ```
 2) Open `git bash`
-3) Make checkout to feature/develop/task2. Use next command:
+3) Make checkout to feature/develop/task3. Use next command:
 ```
-git checkout feature/develop/task2
+git checkout feature/develop/task3
 ```
 4) Find next file usin following path: `your_path\server\server.ino`
 5) Open Arduino IDE, choose you port (for me it's COM3), board and upload code
 
 ### Client side
-1) Open `pull feature/develop/task2`
+1) Open `pull feature/develop/task3`
 2) Navigate to `Action` tab
 3) Choose last project build
 4) Download artifacts
@@ -56,18 +64,11 @@ git checkout feature/develop/task2
 
 ## How it's work
 
-User write message in client console. Server process user input, and return answer.
+At the beginning, the user is allowed to choose the game mode:
+![alt text](media/image1.png)
 
-### Exsample 1
-**User input:** `Привіт Arduino!`
+After the user selects the mode, the game starts:
+![alt text](media/image2.png)
 
-**Server answer:** `Привіт User!`
-
-![alt text](media/image.png)
-
-### Exsample 2 (User enter anything else)
-**User input:** `Привіт!`
-
-**Server answer:** `Мені не відома така команда`
-
-![alt text](media/image-1.png)
+At the end of the game, one of the players will receive a congratulation message:
+![alt text](media/image3.png)
