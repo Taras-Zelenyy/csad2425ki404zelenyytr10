@@ -1,21 +1,10 @@
 #include <iostream>
-#include "../include/communication.h"
+#include <windows.h>
+
+#include "../include/game_manager.h"
 
 int main() {
-    HANDLE hSerial = setupSerial("COM3");
-    if (hSerial == INVALID_HANDLE_VALUE) {
-        return 1;
-    }
-
-    std::string message;
-    std::cout << "Enter your message: ";
-    std::getline(std::cin, message);
-
-    sendMessage(message, hSerial);
-    receiveMessage(hSerial);
-
-    CloseHandle(hSerial);
-    system("pause"); 
-
+    newGame();
+    system("pause");
     return 0;
 }
