@@ -1,23 +1,20 @@
-# Мінімальна версія CMake
 cmake_minimum_required(VERSION 3.10)
 
-# Назва проекту
-project(ClientServerProject)
+project(TicTacToe)
 
-# Встановлюємо стандарт C++
 set(CMAKE_CXX_STANDARD 17)
 
-# Вказуємо директорію з заголовочними файлами
 include_directories(${CMAKE_SOURCE_DIR}/client/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs)
 
-# Додаємо виконуваний файл для клієнта
 add_executable(client
     ${CMAKE_SOURCE_DIR}/client/src/client.cpp
     ${CMAKE_SOURCE_DIR}/client/src/communication.cpp
-)
-
-# Додаємо команду для завантаження коду на Arduino
-add_custom_target(upload_server
-    COMMAND arduino-cli upload -p COM3 --fqbn arduino:avr:nano ${CMAKE_SOURCE_DIR}/server/server.ino
-    COMMENT "Uploading server code to Arduino"
+    ${CMAKE_SOURCE_DIR}/client/src/board.cpp
+    ${CMAKE_SOURCE_DIR}/client/src/console_utils.cpp
+    ${CMAKE_SOURCE_DIR}/client/src/format_message.cpp
+    ${CMAKE_SOURCE_DIR}/client/src/game_manager.cpp
+    ${CMAKE_SOURCE_DIR}/client/src/game_modes.cpp
+    ${CMAKE_SOURCE_DIR}/client/src/player.cpp
+    ${CMAKE_SOURCE_DIR}/libs/pugixml.cpp
 )

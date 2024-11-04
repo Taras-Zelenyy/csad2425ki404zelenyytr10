@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Game>
+	<Board>
+		<Row>
+			<Cell>1</Cell>
+			<Cell>2</Cell>
+			<Cell>3</Cell>
+		</Row>
+		<Row>
+			<Cell>4</Cell>
+			<Cell>O</Cell>
+			<Cell>6</Cell>
+		</Row>
+		<Row>
+			<Cell>7</Cell>
+			<Cell>8</Cell>
+			<Cell>X</Cell>
+		</Row>
+	</Board>
+	<CurrentPlayer>X</CurrentPlayer>
+</Game>
