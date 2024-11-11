@@ -1,0 +1,28 @@
+var a00047 =
+[
+    [ "bestMove", "a00047.html#ae987a644c300381d99083cb1bc2fe671", null ],
+    [ "boardToString", "a00047.html#a44e45c25a9ffe78f5399e9586c8dac8b", null ],
+    [ "checkWin", "a00047.html#a60ecdd11ecd48d5b7d267dd67aeb3e22", null ],
+    [ "handleAIvsAI", "a00047.html#a6f79d4912045d7e2b1f697de0f4ed487", null ],
+    [ "handleManVsAI", "a00047.html#a31c37c91ac5794c0a6de789c8f970828", null ],
+    [ "handleManVsMan", "a00047.html#afc24f4033a348a8cfdf20ea5ccf6de6b", null ],
+    [ "isBoardFull", "a00047.html#a530aa35a4adff4720fe7a1e45a8967ce", null ],
+    [ "isValidMove", "a00047.html#a79333e61918c71c9dc258be05aa3a2a1", null ],
+    [ "loop", "a00047.html#afe461d27b9c48d5921c00d521181f12f", null ],
+    [ "minimax", "a00047.html#a2c5be0a8c25806ab17228f7ea568266c", null ],
+    [ "opponent", "a00047.html#a3ff04dc7582a45a39f86068c89f7549f", null ],
+    [ "parseBoard", "a00047.html#a526d91fa4103a4b5319303755f84ed1a", null ],
+    [ "setup", "a00047.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
+    [ "AI_PLAYER", "a00047.html#a210595744c4e8aec33a6fc52e60d6296", null ],
+    [ "BOARD_SIZE", "a00047.html#aa7a2b8ea2c784a4ad8b58a3262bb4f07", null ],
+    [ "CONTINUE_MSG", "a00047.html#a78a51eb9e3238881870ab7f7616985ef", null ],
+    [ "DRAW_MSG", "a00047.html#a60b838879282d9f3d798156be602088b", null ],
+    [ "INVALIDE_MSG", "a00047.html#a0978e5e810181ecf0ca84931718db761", null ],
+    [ "MODE_AI_VS_AI", "a00047.html#a003cb3afd3f44eacc497f91458386493", null ],
+    [ "MODE_MAN_VS_AI", "a00047.html#a1c9bcb42cc7516544f99b42abf0a86a6", null ],
+    [ "MODE_MAN_VS_MAN", "a00047.html#a1f4fd0ae8686106cf2aed526f0ff54aa", null ],
+    [ "PLAYER_O", "a00047.html#a7766931d2312af8659a80ecec00a08c1", null ],
+    [ "PLAYER_X", "a00047.html#af108c3cc3f91be537beac8bca6b0353c", null ],
+    [ "REAL_PLAYER", "a00047.html#a473cc7a917d5026c84800975f5414f7e", null ],
+    [ "WIN_MSG", "a00047.html#ab5de090e5f9410ddb12aac558047f006", null ]
+];
