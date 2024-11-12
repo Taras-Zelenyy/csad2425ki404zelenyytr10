@@ -62,6 +62,10 @@ git checkout feature/develop/task3
 6) Navigate to `"your_path\build-artifacts\Debug\client.exe"`
 7) Double click to `client.exe`
 
+## Doxygen documentation
+
+For more detailed code, use the doxygen Doxyfile. The documentation can be found at the following link: `<your_path>\build\doc\html\index.html`
+
 ## How it's work
 
 At the beginning, the user is allowed to choose the game mode:

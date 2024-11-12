@@ -36,7 +36,7 @@ if not exist %CLIENT_PATH% (
     exit /b 1
 )
 
-g++ -I%INC_PATH% -I%LIB_PATH% %CLIENT_PATH% %SRC_PATH%\board.cpp %SRC_PATH%\communication.cpp %SRC_PATH%\format_message.cpp %SRC_PATH%\game_modes.cpp %SRC_PATH%\console_utils.cpp %SRC_PATH%\game_manager.cpp %SRC_PATH%\player.cpp %LIB_PATH%\pugixml.cpp -o client.exe
+g++ -I%INC_PATH% -I%LIB_PATH% %CLIENT_PATH% %SRC_PATH%\board.cpp %SRC_PATH%\communication.cpp %SRC_PATH%\format_message.cpp %SRC_PATH%\game_modes.cpp %SRC_PATH%\console_utils.cpp %SRC_PATH%\game_manager.cpp %SRC_PATH%\player.cpp %LIB_PATH%\pugixml.cpp -o build\client.exe
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to compile client code.
     pause

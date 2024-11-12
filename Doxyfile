@@ -1,0 +1,45 @@
+# Doxyfile for Tic Tac Toe Project Documentation
+
+# Project-related settings
+PROJECT_NAME           = "Tic Tac Toe Project"
+PROJECT_BRIEF          = "Documentation for a Tic Tac Toe game implementation with different player modes (human vs human, human vs AI, AI vs AI)"
+PROJECT_LOGO           = ""
+OUTPUT_DIRECTORY       = ./build/doc
+OUTPUT_LANGUAGE        = English
+
+# Build related settings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+EXTRACT_ANON_NSPACES   = NO
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = YES
+
+# File Extensions
+FILE_PATTERNS          = *.cpp *.h *.ino
+RECURSIVE              = YES
+
+# Extension mapping to recognize .ino files as C++ code
+EXTENSION_MAPPING      = ino=C++
+
+# Source directories
+INPUT                  = ./client/src ./client/include ./server
+INPUT_ENCODING         = UTF-8
+
+# Documentation output formats
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+
+# HTML settings
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_COLORSTYLE_HUE    = 200
+HTML_DYNAMIC_SECTIONS  = YES
+GENERATE_TREEVIEW      = YES
+FULL_PATH_NAMES        = NO
+SHORT_NAMES            = YES

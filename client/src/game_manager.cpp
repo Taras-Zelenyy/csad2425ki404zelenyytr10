@@ -10,6 +10,14 @@
 #include "../include/player.h"
 #include "../libs/pugixml.hpp"
 
+/**
+ * @brief Saves the current game state to an XML file.
+ *
+ * Serializes the game board and current player information to an XML file specified by `filename`.
+ * Displays a success message if the game is saved successfully, or an error message if it fails.
+ *
+ * @param filename The name of the file to save the game state to.
+ */
 void saveGame(const std::string& filename) {
     pugi::xml_document doc;
     pugi::xml_node game = doc.append_child("Game");
@@ -36,6 +44,15 @@ void saveGame(const std::string& filename) {
 }
 
 
+/**
+ * @brief Loads the game state from an XML file.
+ *
+ * Reads the game board and current player information from the specified XML file to restore the game state.
+ * Displays success or error messages based on the load result.
+ *
+ * @param filename The name of the file to load the game state from.
+ * @return bool True if the game was successfully loaded, false otherwise.
+ */
 bool loadGame(const std::string& filename) {
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_file(filename.c_str());
@@ -66,6 +83,12 @@ bool loadGame(const std::string& filename) {
     return true;
 }
 
+/**
+ * @brief Initializes and starts a new game session.
+ *
+ * Resets the game board, sets the starting player, and prompts the user to select a game mode. Based on the selection,
+ * it starts a game mode (e.g., human vs human, human vs AI). Sets up serial communication for game data exchange.
+ */
 void newGame() {
     resetBoard();
     player = PLAYER_X;

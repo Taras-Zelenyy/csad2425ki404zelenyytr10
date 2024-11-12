@@ -9,6 +9,14 @@
 #include "../include/console_utils.h"
 #include "../include/game_manager.h"
 
+/**
+ * @brief Converts a player's move to a board position.
+ *
+ * Calculates the row and column of the board based on a player's move input (1-9).
+ *
+ * @param playerMove The move input by the player (1-9).
+ * @return Position The corresponding row and column on the board.
+ */
 Position convertPositionToRowCol(int playerMove) {
     Position pos;
     pos.row = (playerMove - 1) / BOARD_SIZE;
@@ -17,6 +25,14 @@ Position convertPositionToRowCol(int playerMove) {
 }
 
 
+/**
+ * @brief Prompts the player for a valid move and processes special commands.
+ *
+ * Accepts user input for moves and handles special commands for saving, loading, and restarting the game.
+ *
+ * @param player The current player symbol ('X' or 'O').
+ * @return int The valid player move as an integer.
+ */
 int getValidMove(char player) {
     std::string input;
     int playerMove;
@@ -59,6 +75,14 @@ int getValidMove(char player) {
     return playerMove;
 }
 
+/**
+ * @brief Handles the human vs human game mode.
+ *
+ * Manages gameplay where both players are human, handling move inputs,
+ * board updates, and game end conditions.
+ *
+ * @param hSerial Handle to the communication port for sending and receiving game data.
+ */
 void manVsMan(HANDLE hSerial) {
     displayBoard();
     while (true) {
@@ -101,6 +125,14 @@ void manVsMan(HANDLE hSerial) {
     }
 }
 
+/**
+ * @brief Handles the human vs AI game mode.
+ *
+ * Manages gameplay where one player is human and the other is AI,
+ * handling moves, board updates, and game end conditions.
+ *
+ * @param hSerial Handle to the communication port for sending and receiving game data.
+ */
 void manVsAI(HANDLE hSerial) {
     displayBoard();
     while (true) {
@@ -154,6 +186,13 @@ void manVsAI(HANDLE hSerial) {
     }
 }
 
+/**
+ * @brief Handles the AI vs AI game mode.
+ *
+ * Manages gameplay where both players are AI, automating moves and handling game end conditions.
+ *
+ * @param hSerial Handle to the communication port for sending and receiving game data.
+ */
 void aiVsAI(HANDLE hSerial) {
     displayBoard();
     while (true) {
