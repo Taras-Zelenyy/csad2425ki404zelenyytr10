@@ -1,4 +1,4 @@
-name: CI for C++ and Arduino
+name: Tic Tac Toe CI
 
 on:
   push:
@@ -9,34 +9,116 @@ on:
       - '**'
 
 jobs:
-  cpp-arduino-build:
+  client-build-and-test:
     runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download Arduino CLI
-        uses: arduino/setup-arduino-cli@v1
+      - name: Install Chocolatey
+        run: Set-ExecutionPolicy Bypass -Scope Process -Force; `
+             [System.Net.ServicePointManager]::SecurityProtocol = `
+             [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+             iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        shell: powershell
+
+      - name: Install CMake
+        run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+        shell: powershell
+
+      - name: Install GCC
+        run: choco install mingw --yes
+        shell: powershell
+
+      - name: Add GCC to PATH
+        run: |
+          echo "C:\tools\mingw64\bin" >> $Env:GITHUB_PATH
+        shell: powershell
+
+      - name: Install Python
+        uses: actions/setup-python@v4
         with:
-          version: '0.19.2'
+          python-version: '3.x'
 
-      - name: Download CMake
-        run: choco install cmake
+      - name: Install gcovr
+        run: pip install gcovr
+        shell: powershell
 
-      - name: Download platform Arduino AVR
-        run: arduino-cli core install arduino:avr
-
-      - name: Config CMake
-        run: cmake -S . -B build
+      - name: Configure CMake
+        run: |
+          cmake -S ./client -B build -G "MinGW Makefiles" ^
+          -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ ^
+          -DCMAKE_BUILD_TYPE=Debug ^
+          -DCMAKE_C_FLAGS_DEBUG="--coverage -g -O0" ^
+          -DCMAKE_CXX_FLAGS_DEBUG="--coverage -g -O0"
         shell: cmd
 
       - name: Build with CMake
-        run: cmake --build build
+        run: cmake --build build --config Debug
         shell: cmd
-      
-      - name: Download build artefacts
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure || true
+        shell: cmd
+
+      - name: Generate Coverage Report
+        run: |
+          cd build
+          gcovr -r .. --html --html-details -o coverage.html
+        shell: cmd
+
+      - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifacts
-          path: build/*
+          name: coverage-report
+          path: build/coverage.html
+
+  server-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ lcov gcovr libgtest-dev
+
+      - name: Build Google Test
+        run: |
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp lib/*.a /usr/lib
+
+      - name: Configure project with CMake (coverage flags)
+        run: |
+          cd server
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_C_FLAGS="--coverage"
+
+      - name: Build project
+        run: |
+          cd server/build
+          make
+
+      - name: Run tests
+        run: |
+          cd server/build
+          ./test_server_logic
+
+      - name: Generate code coverage report
+        run: |
+          cd server/build
+          gcovr -r ../.. --html --html-details -o coverage.html
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: server-coverage-report
+          path: server/build/coverage.html
